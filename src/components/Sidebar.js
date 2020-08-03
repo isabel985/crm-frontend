@@ -10,8 +10,8 @@ function Sidebar(props) {
         <React.Fragment>
             <NavbarHeader />
             <Switch>
-                <Route exact path={['/', '/search-name', '/add-name']} render={() => <NameSearchBar handleNameSubmit={props.handleNameSubmit} />} />
-                <Route exact path={['/search-company', '/add-company']} render={() => <CompanySearchBar handleSubmit={props.handleSubmit} />} />
+                <Route exact path={['/', '/search-name', '/add-name', '/name/:name_id']} render={() => <NameSearchBar handleNameSubmit={props.handleNameSubmit} />} />
+                <Route exact path={['/search-company', '/add-company', '/company/:company_id']} render={() => <CompanySearchBar handleSubmit={props.handleSubmit} />} />
             </Switch>
             <NavbarFooter />
         </React.Fragment>

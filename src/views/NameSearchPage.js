@@ -1,12 +1,12 @@
 import React from 'react';
 import NameResults from '../components/NameResults';
 
-function NameSearchPage() {
+function NameSearchPage(props) {
     return (
-        <div>
+        <>
             <h3>Name Search Page</h3>
-            <NameResults />
-        </div>
+            {(props.searchedNames.length) ? (<NameResults searchedNames={props.searchedNames} handleShowInfo={props.handleShowInfo} />) : ""}
+        </>
     )
 }
 

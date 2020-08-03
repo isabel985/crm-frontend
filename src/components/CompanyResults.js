@@ -2,11 +2,10 @@ import React from 'react';
 import CompanyRows from './CompanyRows';
 
 function CompanyResults(props) {
-
     return (
         <div>
             Company Result(s): {props.searchedCompanies.length}
-            <table className="table table-striped">
+            <table className="table table-hover">
                 <thead>
                     <tr>
                         <th scope="col">Company</th>

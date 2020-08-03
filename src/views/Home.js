@@ -3,7 +3,7 @@ import React from 'react';
 function Home() {
     return (
         <div>
-            <p>This is the homepage. The current time is </p>
+            <p>This is the homepage.</p>
         </div>
     )
 }

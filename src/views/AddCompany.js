@@ -1,12 +1,12 @@
 import React from 'react';
 
-function AddCompany() {
+function AddCompany(props) {
     return (
         <div className="container">
-            <form>
+            <form onSubmit={props.handlePostCompany}>
                 <div className="row">
                     <h3>Add Company</h3>
-                    <input type="submit" className="btn btn-secondary" />
+                    <button type="submit" className="btn">+</button>
                 </div>
                 <div className="row">
                     <div className="col-md-6">
@@ -39,8 +39,7 @@ function AddCompany() {
                     </div>
                 </div>
                 <label for="">Notes</label>
-                <textarea className="form-control" name="zipCode" aria-label="With textarea"></textarea>
-
+                <textarea className="form-control" name="notes" aria-label="With textarea"></textarea>
             </form>
         </div>
     )
