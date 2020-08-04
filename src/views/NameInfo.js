@@ -81,6 +81,7 @@ function NameInfo(props) {
             .catch(function (error) {
                 console.log(error);
             });
+        // insert alert
         // insert flag
     }
 
@@ -89,8 +90,8 @@ function NameInfo(props) {
             <form>
                 <div className="row">
                     <h3>{name.fName} {name.lName}</h3>
-                    <button className="btn btn-secondary" onClick={handlePutName}>Save</button>
-                    <button className="btn btn-secondary" onClick={handleDeleteName}>Delete</button>
+                    <button className="btn" onClick={handlePutName}><i className="fas fa-save"></i></button>
+                    <button className="btn" onClick={handleDeleteName}><i className="fas fa-trash-alt"></i></button>
                 </div>
                 <div className="row">
                     <div className="col-md-6">

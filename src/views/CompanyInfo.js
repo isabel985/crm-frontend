@@ -65,7 +65,7 @@ function CompanyInfo(props) {
             .catch(function (error) {
                 console.log(error);
             });
-
+        // insert alert
         // insert flag
     }
 
@@ -74,8 +74,8 @@ function CompanyInfo(props) {
             <form>
                 <div className="row">
                     <h3>{company.coName}</h3>
-                    <button className="btn btn-secondary" onClick={handlePutCompany}>Save</button>
-                    <button className="btn btn-secondary" onClick={handleDeleteCompany}>Delete</button>
+                    <button className="btn btn-secondary" onClick={handlePutCompany}><i className="fas fa-save"></i></button>
+                    <button className="btn btn-secondary" onClick={handleDeleteCompany}><i className="fas fa-trash-alt"></i></button>
                 </div>
                 <div className="row">
                     <div className="col-md-6">

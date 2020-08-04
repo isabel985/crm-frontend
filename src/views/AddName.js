@@ -6,7 +6,7 @@ function AddName(props) {
             <form onSubmit={props.handlePostName}>
                 <div className="row">
                     <h3>Add Name</h3>
-                    <button type="submit" className="btn">+</button>
+                    <button type="submit" className="btn"><i className="fas fa-save"></i></button>
                 </div>
                 <div className="row">
                     <div className="col-md-6">

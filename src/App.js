@@ -11,10 +11,10 @@ import NameInfo from './views/NameInfo';
 import CompanyInfo from './views/CompanyInfo';
 
 function App() {
-    const [nameSelect, setNameSelect] = useState({ value: "" });
+    const [nameSelect, setNameSelect] = useState({ value: "first_name" });
     const [nameInput, setNameInput] = useState({ value: "" });
     const [searchedNames, setSearchedNames] = useState([]);
-    const [companySelect, setCompanySelect] = useState({ value: "" });
+    const [companySelect, setCompanySelect] = useState({ value: "company_name" });
     const [companyInput, setCompanyInput] = useState({ value: "" });
     const [searchedCompanies, setSearchedCompanies] = useState([]);
 
@@ -44,6 +44,7 @@ function App() {
                 setSearchedNames(filteredNames)
             }
         })
+        // redirect to search name
         // add a function to clear input
         // fix company id to company name
         // change to axios
@@ -74,10 +75,10 @@ function App() {
                 setSearchedCompanies(filteredCompanies)
             }
         })
+        // redirect to search company
         // add a function to clear input
         // change to axios
     }
-
 
     // POST NAME
     // MUST PUT IN EVERYTHING EXCEPT STATUS, NOTES, RESUME
