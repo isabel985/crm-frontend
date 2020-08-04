@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route, Link, Redirect } from 'react-router-dom';
+import { Switch, Route, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import AddName from './views/AddName';
 import Home from './views/Home';
@@ -27,6 +27,9 @@ function App() {
         setNameInput({ value: e.target.value });
     }
 
+    // Redirect to search name
+    let nameHistory = useHistory();
+
     function handleNameSubmit(e) {
         e.preventDefault();
         var nameSelectV = nameSelect.value
@@ -43,8 +46,11 @@ function App() {
                 })
                 setSearchedNames(filteredNames)
             }
-        })
-        // redirect to search name
+        });
+
+        // Redirect to search name
+        nameHistory.push('/search-name');
+
         // add a function to clear input
         // fix company id to company name
         // change to axios
@@ -57,6 +63,9 @@ function App() {
     function handleCompanyInputChange(e) {
         setCompanyInput({ value: e.target.value });
     }
+
+    // Redirect to search company
+    let companyHistory = useHistory();
 
     function handleCompanySubmit(e) {
         e.preventDefault();
@@ -76,6 +85,7 @@ function App() {
             }
         })
         // redirect to search company
+        companyHistory.push('/search-company');
         // add a function to clear input
         // change to axios
     }
