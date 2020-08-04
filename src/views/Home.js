@@ -3,7 +3,7 @@ import React from 'react';
 function Home() {
     return (
         <div>
-            <p>This is the homepage.</p>
+            <h3>Welcome to Capstone CRM</h3>
         </div>
     )
 }

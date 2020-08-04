@@ -11,82 +11,32 @@ import NameInfo from './views/NameInfo';
 import CompanyInfo from './views/CompanyInfo';
 
 function App() {
-    const [searchedCompanies, setSearchedCompanies] = useState("");
-    const [searchedNames, setSearchedNames] = useState("");
+    const [nameSelect, setNameSelect] = useState({ value: "" });
+    const [nameInput, setNameInput] = useState({ value: "" });
+    const [searchedNames, setSearchedNames] = useState([]);
+    const [companySelect, setCompanySelect] = useState({ value: "" });
+    const [companyInput, setCompanyInput] = useState({ value: "" });
+    const [searchedCompanies, setSearchedCompanies] = useState([]);
 
-    function handleSubmit(e) {
-        e.preventDefault();
+    // NAME SEARCH BAR ---------------------------------------------------------------------
+    function handleNameSelectChange(e) {
+        setNameSelect({ value: e.target.value });
+    }
 
-        // if any e.target.SOMETHING.values are true
-        // and if any of those e.target.SOMETHING.values == any company[SOMETHING]
-        // return company
-
-        // console.log(e.target)
-        // var company_name = e.target.company.value
-        // var company_status = e.target.status.value
-        // var company_phone = e.target.phone.value
-        // var company_city = e.target.city.value
-        // var company_state = e.target.state.value
-        // var company_zip_code = e.target.zipCode.value
-        // fetch('http://localhost:5000/companies').then(res => res.json()).then(data => {
-        //     if (data.companies.length) {
-        //         var filteredCompanies = data.companies.filter(company => {
-        //             for (i in [company_name, company_status, company_phone, company_city, company_state, company_zip_code]) {
-        //                 if (i in data.companies) {
-        //                     return company
-        //                 }
-        //             }
-        //         })
-        //         setSearchedCompanies(filteredCompanies)
-        //     }
-        // })
-        var companyV = e.target.company.value
-        var statusV = e.target.status.value
-        var phoneV = e.target.phone.value
-        var cityV = e.target.city.value
-        var stateV = e.target.state.value
-        var zipCodeV = e.target.zipCode.value
-        fetch('http://localhost:5000/companies').then(res => res.json()).then(data => {
-            if (data.companies.length) {
-                var filteredCompanies = data.companies.filter(company => {
-                    if (phoneV) {
-                        if (
-                            phoneV.toLowerCase() == company['company_phone'].toLowerCase()
-                        ) {
-                            return company
-                        }
-                    }
-                    if (companyV) {
-                        if (
-                            companyV.toLowerCase() == company['company_name'].toLowerCase()
-                        ) {
-                            return company
-                        }
-                    }
-                })
-                setSearchedCompanies(filteredCompanies)
-            }
-        })
+    function handleNameInputChange(e) {
+        setNameInput({ value: e.target.value });
     }
 
     function handleNameSubmit(e) {
         e.preventDefault();
-        var fNameV = e.target.fName.value
-        var lNameV = e.target.lName.value
-        var titleV = e.target.title.value
-        var companyV = e.target.company.value
-        var statusV = e.target.status.value
-        var phoneV = e.target.phone.value
-        var emailV = e.target.email.value
-        var cityV = e.target.city.value
-        var stateV = e.target.state.value
-        var zipCodeV = e.target.zipCode.value
-        console.log(fNameV)
+        var nameSelectV = nameSelect.value
+        var nameInputV = nameInput.value
+
         fetch('http://localhost:5000/names').then(res => res.json()).then(data => {
-            if (data.names) {
+            if (data.names.length) {
                 var filteredNames = data.names.filter(name => {
-                    if (fNameV) {
-                        if (fNameV.toLowerCase() == name['first_name'].toLowerCase()) {
+                    if (nameInputV && name[nameSelectV]) {
+                        if (nameInputV.toLowerCase() == name[nameSelectV].toString().toLowerCase()) {
                             return name
                         }
                     }
@@ -94,7 +44,40 @@ function App() {
                 setSearchedNames(filteredNames)
             }
         })
+        // add a function to clear input
+        // fix company id to company name
+        // change to axios
     }
+
+    // COMPANY SEARCH BAR ---------------------------------------------------------------------
+    function handleCompanySelectChange(e) {
+        setCompanySelect({ value: e.target.value })
+    }
+    function handleCompanyInputChange(e) {
+        setCompanyInput({ value: e.target.value });
+    }
+
+    function handleCompanySubmit(e) {
+        e.preventDefault();
+        var companySelectV = companySelect.value
+        var companyInputV = companyInput.value
+
+        fetch('http://localhost:5000/companies').then(res => res.json()).then(data => {
+            if (data.companies.length) {
+                var filteredCompanies = data.companies.filter(company => {
+                    if (companyInputV && company[companySelectV]) {
+                        if (companyInputV.toLowerCase() == company[companySelectV].toString().toLowerCase()) {
+                            return company
+                        }
+                    }
+                })
+                setSearchedCompanies(filteredCompanies)
+            }
+        })
+        // add a function to clear input
+        // change to axios
+    }
+
 
     // POST NAME
     // MUST PUT IN EVERYTHING EXCEPT STATUS, NOTES, RESUME
@@ -171,7 +154,14 @@ function App() {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3">
-                            <Sidebar handleSubmit={handleSubmit} handleNameSubmit={handleNameSubmit} />
+                            <Sidebar
+                                handleNameSubmit={handleNameSubmit}
+                                handleNameSelectChange={handleNameSelectChange}
+                                handleNameInputChange={handleNameInputChange}
+                                handleCompanySubmit={handleCompanySubmit}
+                                handleCompanySelectChange={handleCompanySelectChange}
+                                handleCompanyInputChange={handleCompanyInputChange}
+                            />
                         </div>
                         <div className="col-md-9">
                             <Switch>

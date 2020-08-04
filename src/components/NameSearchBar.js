@@ -5,27 +5,23 @@ function NameSearchBar(props) {
         <div>
             <h3>Name Search</h3>
             <form onSubmit={props.handleNameSubmit}>
-                <label for="">First Name</label>
-                <input type="text" name="fName" id="" className="form-control" placeholder="First Name" />
-                <label for="">Last Name</label>
-                <input type="text" name="lName" id="" className="form-control" placeholder="Last Name" />
-                <label for="">Title</label>
-                <input type="text" name="title" id="" className="form-control" placeholder="Title" />
-                <label for="">Company</label>
-                <input type="text" name="company" id="" className="form-control" placeholder="Company" />
-                <label for="">Status</label>
-                <input type="text" name="status" id="" className="form-control" placeholder="Status" />
-                <label for="">Phone</label>
-                <input type="text" name="phone" id="" className="form-control" placeholder="Phone" />
-                <label for="">Email</label>
-                <input type="text" name="email" id="" className="form-control" placeholder="Email" />
-                <label for="">City</label>
-                <input type="text" name="city" id="" className="form-control" placeholder="City" />
-                <label for="">State</label>
-                <input type="text" name="state" id="" className="form-control" placeholder="State" />
-                <label for="">Zip Code</label>
-                <input type="text" name="zipCode" id="" className="form-control" placeholder="Zip Code" />
-                <input type="submit" className="btn btn-secondary btn-block" />
+                <div className="form-group">
+                    <label for="exampleFormControlSelect1">Select Criteria</label>
+                    <select className="form-control" id="exampleFormControlSelect1" onChange={props.handleNameSelectChange}>
+                        <option value="first_name">First Name</option>
+                        <option value="last_name">Last Name</option>
+                        <option value="title">Title</option>
+                        <option value="company_id">Company Id</option>
+                        <option value="name_status">Status</option>
+                        <option value="name_phone">Phone</option>
+                        <option value="name_email">Email</option>
+                        <option value="name_city">City</option>
+                        <option value="name_state">State</option>
+                        <option value="name_zip_code">Zip Code</option>
+                    </select>
+                    <input onChange={props.handleNameInputChange} type="text" name="nameInput" id="" className="form-control" />
+                    <input type="submit" className="btn btn-secondary btn-block" value="Submit" />
+                </div>
             </form>
         </div>
     )

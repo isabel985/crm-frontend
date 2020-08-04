@@ -5,20 +5,20 @@ function CompanySearchBar(props) {
     return (
         <div>
             <h3>Company Search</h3>
-            <form onSubmit={props.handleSubmit}>
-                <label for="">Company</label>
-                <input type="text" name="company" id="" className="form-control" placeholder="Company" />
-                <label for="">Status</label>
-                <input type="text" name="status" id="" className="form-control" placeholder="Status" />
-                <label for="">Phone</label>
-                <input type="text" name="phone" id="" className="form-control" placeholder="Phone" />
-                <label for="">City</label>
-                <input type="text" name="city" id="" className="form-control" placeholder="City" />
-                <label for="">State</label>
-                <input type="text" name="state" id="" className="form-control" placeholder="State" />
-                <label for="">Zip Code</label>
-                <input type="text" name="zipCode" id="" className="form-control" placeholder="Zip Code" />
-                <input type="submit" className="btn btn-secondary btn-block" />
+            <form onSubmit={props.handleCompanySubmit}>
+                <div className="form-group">
+                    <label for="exampleFormControlSelect1">Select Criteria</label>
+                    <select className="form-control" id="exampleFormControlSelect1" onChange={props.handleCompanySelectChange}>
+                        <option value="company_name">Company</option>
+                        <option value="company_status">Status</option>
+                        <option value="company_phone">Phone</option>
+                        <option value="company_city">City</option>
+                        <option value="company_state">State</option>
+                        <option value="company_zip_code">Zip Code</option>
+                    </select>
+                    <input onChange={props.handleCompanyInputChange} type="text" id="" className="form-control" />
+                    <input type="submit" className="btn btn-secondary btn-block" value="Submit" />
+                </div>
             </form>
         </div>
     )
