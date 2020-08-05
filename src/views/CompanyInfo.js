@@ -58,20 +58,23 @@ function CompanyInfo(props) {
     // DELETE REQUEST
     function handleDeleteCompany(e) {
         e.preventDefault();
-        axios.delete(`http://localhost:5000/company/${props.match.params.id}`, {})
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        var res = window.confirm('Are you sure you would like to delete?');
+        if (res) {
+            axios.delete(`http://localhost:5000/company/${props.match.params.id}`, {})
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
         // insert alert
         // insert flag
     }
 
     return (
         <div className="container company-info">
-            <div class="row">
+            <div className="row">
                 <form>
                     <div className="row">
                         <div className="col">
@@ -84,44 +87,48 @@ function CompanyInfo(props) {
                     </div>
                     <div className="row">
                         <div className="col-md-6">
-                            <label for="">Status</label>
-                            <input onChange={onCompanyChange} name="status" type="text" className="form-control" value={company.status} />
+                            <label for="status">Status</label>
+                            <select id="status" name="status" className="form-control" id="exampleFormControlSelect1" onChange={onCompanyChange} value={company.status}>
+                                <option value="">Select Status</option>
+                                <option value="client">Client</option>
+                                <option value="do_not_contact">Do Not Contact</option>
+                            </select>
                         </div>
                         <div className="col-md-6">
-                            <label for="">City</label>
-                            <input onChange={onCompanyChange} name="city" type="text" className="form-control" value={company.city} />
+                            <label for="city">City</label>
+                            <input id="city" onChange={onCompanyChange} name="city" type="text" className="form-control" value={company.city} />
                         </div>
                         <div className="col-md-6">
-                            <label for="">Company Name</label>
-                            <input onChange={onCompanyChange} name="coName" type="text" className="form-control" value={company.coName} />
+                            <label for="name">Company Name</label>
+                            <input id="name" onChange={onCompanyChange} name="coName" type="text" className="form-control" value={company.coName} />
                         </div>
                         <div className="col-md-6">
-                            <label for="">State</label>
-                            <input onChange={onCompanyChange} name="state" type="text" className="form-control" value={company.state} />
+                            <label for="state">State</label>
+                            <input id="state" onChange={onCompanyChange} name="state" type="text" className="form-control" value={company.state} />
                         </div>
                         <div className="col-md-6">
-                            <label for="">Phone</label>
-                            <input onChange={onCompanyChange} name="phone" type="text" className="form-control" value={company.phone} />
+                            <label for="phone">Phone</label>
+                            <input id="phone" onChange={onCompanyChange} name="phone" type="text" className="form-control" value={company.phone} />
                         </div>
                         <div className="col-md-6">
-                            <label for="">Zip Code</label>
-                            <input onChange={onCompanyChange} name="zipCode" type="text" className="form-control" value={company.zipCode} />
+                            <label for="zip">Zip Code</label>
+                            <input id="zip" onChange={onCompanyChange} name="zipCode" type="text" className="form-control" value={company.zipCode} />
                         </div>
                         <div className="col-md-6">
-                            <label for="">Website</label>
-                            <input onChange={onCompanyChange} name="website" type="text" className="form-control" value={company.website} />
+                            <label for="web">Website</label>
+                            <input id="web" onChange={onCompanyChange} name="website" type="text" className="form-control" value={company.website} />
                         </div>
                         <div className="col-md-6">
-                            <label for="">Created By</label>
-                            <input onChange={onCompanyChange} name="user" type="text" className="form-control" value={company.user} />
+                            <label for="user">Created By</label>
+                            <input id="user" name="user" type="text" className="form-control" value={company.user} />
                         </div>
                         <div className="col-md-6">
-                            <label for="">Created On</label>
-                            <input onChange={onCompanyChange} name="date" type="text" className="form-control" value={company.date} />
+                            <label for="date">Created On</label>
+                            <input id="date" onChange={onCompanyChange} name="date" type="text" className="form-control" value={company.date} />
                         </div>
                     </div>
-                    <label for="">Notes</label>
-                    <textarea onChange={onCompanyChange} name="notes" className="form-control" value={company.notes} aria-label="With textarea"></textarea>
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" onChange={onCompanyChange} name="notes" className="form-control" value={company.notes} aria-label="With textarea"></textarea>
                 </form>
             </div>
         </div>

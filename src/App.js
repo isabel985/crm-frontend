@@ -40,7 +40,7 @@ function App() {
             if (data.names.length) {
                 var filteredNames = data.names.filter(name => {
                     if (nameInputV && name[nameSelectV]) {
-                        if (nameInputV.toLowerCase() == name[nameSelectV].toString().toLowerCase()) {
+                        if (nameInputV.trim().toLowerCase() == name[nameSelectV].toString().toLowerCase()) {
                             return name
                         }
                     }
@@ -76,7 +76,7 @@ function App() {
             if (data.companies.length) {
                 var filteredCompanies = data.companies.filter(company => {
                     if (companyInputV && company[companySelectV]) {
-                        if (companyInputV.toLowerCase() == company[companySelectV].toString().toLowerCase()) {
+                        if (companyInputV.trim().toLowerCase() == company[companySelectV].toString().toLowerCase()) {
                             return company
                         }
                     }

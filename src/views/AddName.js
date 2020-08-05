@@ -16,7 +16,13 @@ function AddName(props) {
                     <div className="row">
                         <div className="col-md-6">
                             <label for="">Status</label>
-                            <input type="text" name="status" id="" className="form-control" placeholder="Status" />
+                            <select id="status" name="status" className="form-control" id="exampleFormControlSelect1" >
+                                <option value="">Select Status</option>
+                                <option value="client">Client Contact</option>
+                                <option value="do_not_contact">Do Not Contact</option>
+                                <option value="pending">Deal Pending</option>
+                                <option value="deal_complete">Deal Complete</option>
+                            </select>
                         </div>
                         <div className="col-md-6">
                             <label for="">City</label>

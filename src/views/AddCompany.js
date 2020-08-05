@@ -16,8 +16,11 @@ function AddCompany(props) {
                     <div className="row">
                         <div className="col-md-6">
                             <label for="">Status</label>
-                            <input type="text" name="status" id="" className="form-control" placeholder="Status" />
-                        </div>
+                            <select id="status" name="status" className="form-control" id="exampleFormControlSelect1">
+                                <option value="">Select Status</option>
+                                <option value="client">Client</option>
+                                <option value="do_not_contact">Do Not Contact</option>
+                            </select></div>
                         <div className="col-md-6">
                             <label for="">City</label>
                             <input type="text" name="city" id="" className="form-control" placeholder="City" />

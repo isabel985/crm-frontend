@@ -74,14 +74,16 @@ function NameInfo(props) {
     // DELETE REQUEST
     function handleDeleteName(e) {
         e.preventDefault();
-        axios.delete(`http://localhost:5000/name/${props.match.params.id}`, {})
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-        // insert alert
+        var res = window.confirm('Are you sure you would like to delete?');
+        if (res) {
+            axios.delete(`http://localhost:5000/name/${props.match.params.id}`, {})
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
         // insert flag
     }
 
@@ -101,7 +103,13 @@ function NameInfo(props) {
                     <div className="row">
                         <div className="col-md-6">
                             <label for="">Status</label>
-                            <input onChange={onNameChange} type="text" name="status" className="form-control" value={name.status} />
+                            <select id="status" name="status" className="form-control" id="exampleFormControlSelect1" onChange={onNameChange} value={name.status}>
+                                <option value="">Select Status</option>
+                                <option value="client">Client Contact</option>
+                                <option value="do_not_contact">Do Not Contact</option>
+                                <option value="pending">Deal Pending</option>
+                                <option value="deal_complete">Deal Complete</option>
+                            </select>
                         </div>
                         <div className="col-md-6">
                             <label for="">City</label>
@@ -129,7 +137,7 @@ function NameInfo(props) {
                         </div>
                         <div className="col-md-6">
                             <label for="">Company</label>
-                            <input onChange={onNameChange} type="text" name="nameCompany" className="form-control" value={nameCompany} />
+                            <input type="text" name="nameCompany" className="form-control" value={nameCompany} />
                         </div>
                         <div className="col-md-6">
                             <label for="">Phone</label>
@@ -141,7 +149,7 @@ function NameInfo(props) {
                         </div>
                         <div className="col-md-6">
                             <label for="">Created By</label>
-                            <input onChange={onNameChange} type="text" name="user" className="form-control" value={name.user} />
+                            <input type="text" name="user" className="form-control" value={name.user} />
                         </div>
                         <div className="col-md-6">
                             <label for="">Created On</label>

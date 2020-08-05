@@ -5,7 +5,7 @@ function NavbarFooter() {
         <div>
             <ul>
                 <li>
-                    <i class="fas fa-sign-out-alt"></i> Logout
+                    <i className="fas fa-sign-out-alt"></i> Logout
                     </li>
             </ul>
         </div>
