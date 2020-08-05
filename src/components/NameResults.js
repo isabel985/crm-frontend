@@ -4,16 +4,15 @@ import NameRows from './NameRows';
 function NameResults(props) {
     return (
         <div>
-            Name Result(s): {props.searchedNames.length}
             <table className="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Company</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Location</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col">TITLE</th>
+                        <th scope="col">COMPANY</th>
+                        <th scope="col">PHONE</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">LOCATION</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -2,8 +2,12 @@ import React from 'react';
 
 function Home() {
     return (
-        <div>
-            <h3>Welcome to Capstone CRM</h3>
+        <div className="container home">
+            <div className="row">
+                <div className="col-md-12">
+                    <h3>Welcome to Capstone CRM</h3>
+                </div>
+            </div>
         </div>
     )
 }

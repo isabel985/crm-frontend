@@ -4,14 +4,13 @@ import CompanyRows from './CompanyRows';
 function CompanyResults(props) {
     return (
         <div>
-            Company Result(s): {props.searchedCompanies.length}
             <table className="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">Company</th>
-                        <th scope="col">Location</th>
-                        <th scope="col">Website</th>
-                        <th scope="col">Phone</th>
+                        <th scope="col">COMPANY</th>
+                        <th scope="col">LOCATION</th>
+                        <th scope="col">WEBSITE</th>
+                        <th scope="col">PHONE</th>
                     </tr>
                 </thead>
                 <tbody>

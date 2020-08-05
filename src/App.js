@@ -9,6 +9,7 @@ import NameSearchPage from './views/NameSearchPage';
 import CompanySearchPage from './views/CompanySearchPage';
 import NameInfo from './views/NameInfo';
 import CompanyInfo from './views/CompanyInfo';
+import SearchBar from './components/SearchBar';
 
 function App() {
     const [nameSelect, setNameSelect] = useState({ value: "first_name" });
@@ -51,7 +52,6 @@ function App() {
         // Redirect to search name
         nameHistory.push('/search-name');
 
-        // add a function to clear input
         // fix company id to company name
         // change to axios
     }
@@ -86,7 +86,7 @@ function App() {
         })
         // redirect to search company
         companyHistory.push('/search-company');
-        // add a function to clear input
+
         // change to axios
     }
 
@@ -164,26 +164,36 @@ function App() {
             <main>
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-3">
-                            <Sidebar
-                                handleNameSubmit={handleNameSubmit}
-                                handleNameSelectChange={handleNameSelectChange}
-                                handleNameInputChange={handleNameInputChange}
-                                handleCompanySubmit={handleCompanySubmit}
-                                handleCompanySelectChange={handleCompanySelectChange}
-                                handleCompanyInputChange={handleCompanyInputChange}
-                            />
+                        <div className="col-md-2">
+                            <Sidebar />
                         </div>
-                        <div className="col-md-9">
-                            <Switch>
-                                <Route exact path='/' render={() => <Home />} />
-                                <Route exact path='/add-name' render={() => <AddName handlePostName={handlePostName} />} />
-                                <Route exact path='/add-company' render={() => <AddCompany handlePostCompany={handlePostCompany} />} />
-                                <Route exact path='/search-company' render={() => <CompanySearchPage searchedCompanies={searchedCompanies} />} />
-                                <Route exact path='/search-name' render={() => <NameSearchPage searchedNames={searchedNames} />} />
-                                <Route exact path='/name/:id' render={({ match }) => <NameInfo match={match} searchedNames={searchedNames} />} />
-                                <Route exact path='/company/:id' render={({ match }) => <CompanyInfo match={match} searchedCompanies={searchedCompanies} />} />
-                            </Switch>
+                        <div className="col-md-10">
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <SearchBar
+                                        handleNameSubmit={handleNameSubmit}
+                                        handleNameSelectChange={handleNameSelectChange}
+                                        handleNameInputChange={handleNameInputChange}
+                                        handleCompanySubmit={handleCompanySubmit}
+                                        handleCompanySelectChange={handleCompanySelectChange}
+                                        handleCompanyInputChange={handleCompanyInputChange}
+                                    />
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <Switch>
+                                        <Route exact path='/' render={() => <Home />} />
+                                        <Route exact path='/add-name' render={() => <AddName handlePostName={handlePostName} />} />
+                                        <Route exact path='/add-company' render={() => <AddCompany handlePostCompany={handlePostCompany} />} />
+                                        <Route exact path='/search-company' render={() => <CompanySearchPage searchedCompanies={searchedCompanies} />} />
+                                        <Route exact path='/search-name' render={() => <NameSearchPage searchedNames={searchedNames} />} />
+                                        <Route exact path='/name/:id' render={({ match }) => <NameInfo match={match} searchedNames={searchedNames} />} />
+                                        <Route exact path='/company/:id' render={({ match }) => <CompanyInfo match={match} searchedCompanies={searchedCompanies} />} />
+                                    </Switch>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
