@@ -8,7 +8,7 @@ function CompanySearchPage(props) {
                 <form onSubmit={props.handlePostCompany}>
                     <div className="row">
                         <div className="col-md-12">
-                            <h3>{props.searchedCompanies.length > 0 ? `${props.searchedCompanies.length} Companies Found` : `Start Searching...`}</h3>
+                            <p>{props.searchedCompanies.length > 0 ? `Companies Found: ${props.searchedCompanies.length}` : `Start Searching...`}</p>
                             {(props.searchedCompanies.length) ? (<CompanyResults searchedCompanies={props.searchedCompanies} />) : ""}
                         </div>
                     </div>

@@ -44,10 +44,33 @@ ul {
 
 /* HOME, ADD NAME, ADD COMPANY */
 .home {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.home-md {
     background-color: white;
     border-radius: 6px;
-    margin-top: 20px;
-    padding: 20px 50px 300px;
+    padding: 20px 30px 210px;
+    color: grey;
+}
+
+.home-sm {
+    background-color: white;
+    border-radius: 6px;
+    padding: 80px 10px 10px;
+    text-align: center;
+    font-size: 10px;
+    color: grey;
+    margin-bottom: 20px;
+}
+
+.left p {
+    color: #5DADE2;
+}
+
+.right {
+    margin-top: 36px;
 }
 
 .add-name, .add-company, .name-info, .company-info {

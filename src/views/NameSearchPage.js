@@ -8,7 +8,7 @@ function NameSearchPage(props) {
                 <form onSubmit={props.handlePostCompany}>
                     <div className="row">
                         <div className="col-md-12">
-                            <h3>{(props.searchedNames.length > 0) ? `${props.searchedNames.length} Names Found` : `Start Searching...`}</h3>
+                            <p>{(props.searchedNames.length > 0) ? `Names Found: ${props.searchedNames.length}` : `Start Searching...`}</p>
                             {(props.searchedNames.length) ? (<NameResults searchedNames={props.searchedNames} handleShowInfo={props.handleShowInfo} />) : ""}
                         </div>
                     </div>
