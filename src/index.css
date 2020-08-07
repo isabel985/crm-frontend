@@ -42,6 +42,35 @@ ul {
     float: right;
 }
 
+/* HOME */
+.date {
+    background-color: white;
+    border-radius: 6px;
+    padding: 23px 10px;
+    text-align: center;
+    font-size: 10px;
+    color: grey;
+    margin-bottom: 20px;
+}
+
+.dateNum {
+    font-size: 40px;
+}
+
+.weather {
+    background-color: white;
+    border-radius: 6px;
+    padding: 10px;
+    text-align: center;
+    font-size: 10px;
+    color: grey;
+    margin-bottom: 20px;
+}
+
+.weather img {
+    width: 50%;
+}
+
 /* HOME, ADD NAME, ADD COMPANY */
 .home {
     margin-top: 20px;
@@ -51,14 +80,14 @@ ul {
 .home-md {
     background-color: white;
     border-radius: 6px;
-    padding: 20px 30px 210px;
+    padding: 20px 30px 242px;
     color: grey;
 }
 
 .home-sm {
     background-color: white;
     border-radius: 6px;
-    padding: 80px 10px 10px;
+    padding: 95px 10px 10px;
     text-align: center;
     font-size: 10px;
     color: grey;

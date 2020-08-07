@@ -3,6 +3,7 @@ import axios from 'axios';
 
 function CompanyInfo(props) {
     const [company, setCompany] = useState({});
+    const [username, setUsername] = useState("");
 
     useEffect(() => {
         fetch(`http://localhost:5000/company/${props.match.params.id}`).then(res => res.json().then(data => {
@@ -19,6 +20,11 @@ function CompanyInfo(props) {
                 date: data.company_date_created
             }
             setCompany(company)
+
+            fetch(`http://localhost:5000/user/${company.user}`).then(res => res.json().then(data => {
+                var username = data.username;
+                setUsername(username);
+            }))
         }))
     }, []);
 
@@ -120,7 +126,7 @@ function CompanyInfo(props) {
                         </div>
                         <div className="col-md-6">
                             <label for="user">Created By</label>
-                            <input id="user" name="user" type="text" className="form-control" value={company.user} />
+                            <input id="user" name="user" type="text" className="form-control" value={username} />
                         </div>
                         <div className="col-md-6">
                             <label for="date">Created On</label>

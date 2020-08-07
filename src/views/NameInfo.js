@@ -4,6 +4,7 @@ import axios from 'axios';
 function NameInfo(props) {
     const [name, setName] = useState({});
     const [nameCompany, setNameCompany] = useState("");
+    const [username, setUsername] = useState("");
 
     useEffect(() => {
         fetch(`http://localhost:5000/name/${props.match.params.id}`).then(res => res.json()).then(data => {
@@ -26,8 +27,13 @@ function NameInfo(props) {
             setName(name);
 
             fetch(`http://localhost:5000/company/${name.company}`).then(res => res.json().then(data => {
-                var companyName = data.company_name
-                setNameCompany(companyName)
+                var companyName = data.company_name;
+                setNameCompany(companyName);
+            }))
+
+            fetch(`http://localhost:5000/user/${name.user}`).then(res => res.json().then(data => {
+                var username = data.username;
+                setUsername(username);
             }))
         })
     }, []);
@@ -59,14 +65,11 @@ function NameInfo(props) {
             notes: name.notes,
             resume: name.resume,
             company_id: name.company
-        })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-        console.log(name)
+        }).then(function (response) {
+            console.log(response);
+        }).catch(function (error) {
+            console.log(error);
+        });
 
         // insert flag
     }
@@ -149,7 +152,7 @@ function NameInfo(props) {
                         </div>
                         <div className="col-md-6">
                             <label for="">Created By</label>
-                            <input type="text" name="user" className="form-control" value={name.user} />
+                            <input type="text" name="user" className="form-control" value={username} />
                         </div>
                         <div className="col-md-6">
                             <label for="">Created On</label>

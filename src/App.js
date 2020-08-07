@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Switch, Route, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import AddName from './views/AddName';
 import Home from './views/Home';
+import Login from './views/Login';
 import Sidebar from './components/Sidebar';
 import AddCompany from './views/AddCompany';
 import NameSearchPage from './views/NameSearchPage';
@@ -18,6 +19,23 @@ function App() {
     const [companySelect, setCompanySelect] = useState({ value: "company_name" });
     const [companyInput, setCompanyInput] = useState({ value: "" });
     const [searchedCompanies, setSearchedCompanies] = useState([]);
+
+    // LOGIN -------------------------------------------------------------------------------
+    function handleLogin(e) {
+        e.preventDefault();
+        // axios.post('http://localhost:5000/login', {
+
+        // }).then(function (response) {
+        //     console.log(response);
+        // }).catch(function (error) {
+        //     console.log(error);
+        // });
+
+        fetch('http://localhost:5000/login').then(res => res.json()).then(data => {
+
+        })
+
+    }
 
     // NAME SEARCH BAR ---------------------------------------------------------------------
     function handleNameSelectChange(e) {
@@ -119,13 +137,11 @@ function App() {
             company_id: companyV,
             user_id: 1,
             notes: notesV
-        })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        }).then(function (response) {
+            console.log(response);
+        }).catch(function (error) {
+            console.log(error);
+        });
     }
 
     // MUST PUT IN ALL FIELD EXCEPT STATUS AND NOTES
@@ -150,13 +166,11 @@ function App() {
             company_zip_code: zipCodeV,
             notes: notesV,
             user_id: 1
-        })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        }).then(function (response) {
+            console.log(response);
+        }).catch(function (error) {
+            console.log(error);
+        });
     }
 
     return (
@@ -184,6 +198,7 @@ function App() {
                                 <div className="col-md-12">
                                     <Switch>
                                         <Route exact path='/' render={() => <Home />} />
+                                        <Route exact path='/login' render={() => <Login handleLogin={handleLogin} />} />
                                         <Route exact path='/add-name' render={() => <AddName handlePostName={handlePostName} />} />
                                         <Route exact path='/add-company' render={() => <AddCompany handlePostCompany={handlePostCompany} />} />
                                         <Route exact path='/search-company' render={() => <CompanySearchPage searchedCompanies={searchedCompanies} />} />
@@ -191,7 +206,6 @@ function App() {
                                         <Route exact path='/name/:id' render={({ match }) => <NameInfo match={match} searchedNames={searchedNames} />} />
                                         <Route exact path='/company/:id' render={({ match }) => <CompanyInfo match={match} searchedCompanies={searchedCompanies} />} />
                                     </Switch>
-
                                 </div>
                             </div>
                         </div>
